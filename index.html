@@ -678,16 +678,18 @@ pawan-kumar-buddha
         const AUTO_SLIDE_MS = 4000;
         const RESUME_AFTER_MANUAL_MS = 10000;
         const TRANSITION = 'transform 0.5s ease';
-        let isTransitioning = false;
 
-        slides.style.transition = TRANSITION;
+        slides.style.transition = 'none';
+        slides.style.transform = `translateX(-100%)`;
+        requestAnimationFrame(() => {
+            slides.style.transition = TRANSITION;
+        });
         function showSlide(index) {
-            if (isTransitioning) return;
-            isTransitioning = true;
             currentSlide = index;
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
         function startAutoSlide() {
+            clearInterval(autoSlideTimer);
             autoSlideTimer = setInterval(() => {
                 showSlide(currentSlide + 1);
             }, AUTO_SLIDE_MS);
@@ -722,10 +724,9 @@ pawan-kumar-buddha
                 void slides.offsetWidth;
                 slides.style.transition = TRANSITION;
             }
-            isTransitioning = false;
         });
 
-        showSlide(1);
+        currentSlide = 1;
         startAutoSlide();
     </script>
 
