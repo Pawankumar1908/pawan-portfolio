@@ -1,0 +1,733 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budda Pawan Kumar - Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap">
+
+    <style>
+        /* === SPACE & GOLD TEMPLATE === */
+
+        /* --- KEYFRAMES FOR GLOW --- */
+        @keyframes gold-glow {
+            0% { 
+                box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+            }
+            50% { 
+                box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 50px #B8860B;
+            }
+            100% { 
+                box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+            }
+        }
+        
+        /* --- BASE STYLES --- */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            /* Using a high-quality, royalty-free space background image */
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #000; /* Fallback */
+            color: #f0f0f0; /* Off-white text */
+            margin: 0;
+            padding: 20px 0; /* Padding for top/bottom */
+        }
+
+        .container {
+            width: min(860px, calc(100vw - 330px));
+            margin: 20px 20px 20px 290px;
+            padding: 22px;
+            /* Dark, semi-transparent color from your template */
+            background-color: rgba(30, 20, 20, 0.9); 
+            border: 2px solid #FF8C00; /* Dark orange/gold border */
+            border-radius: 20px; /* Rounded corners from template */
+            box-shadow: 0 4px 25px rgba(255, 140, 0, 0.2); /* Subtle orange glow */
+        }
+
+        /* --- LEFT MENU --- */
+        .side-menu {
+            position: fixed;
+            top: 18px;
+            bottom: 18px;
+            left: 14px;
+            width: 250px;
+            background: linear-gradient(170deg, rgba(255, 140, 0, 0.2), rgba(30, 20, 20, 0.96));
+            border: 2px solid #FFB347;
+            border-radius: 30px;
+            padding: 76px 14px 14px 14px;
+            z-index: 90;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.28), inset 0 0 0 1px rgba(255, 215, 0, 0.35);
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        .side-menu a {
+            display: block;
+            color: #fff4cf;
+            padding: 10px 12px;
+            border-radius: 14px;
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 6px 16px rgba(0, 0, 0, 0.22);
+        }
+        .side-menu a i {
+            width: 18px;
+            margin-right: 8px;
+            color: #FFB347;
+        }
+        .side-menu a:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+            border-color: rgba(255, 215, 0, 0.72);
+            color: #FFD700;
+            text-decoration: none;
+            transform: translateX(3px);
+        }
+        
+        /* --- LOGO BOMB --- */
+        .logo-box {
+            position: fixed; /* Stays in corner */
+            top: 20px;
+            right: 20px;
+            background-color: #FF8C00; /* Dark Orange */
+            padding: 10px 15px;
+            border-radius: 10px;
+            z-index: 100;
+        }
+        
+        .logo-box i {
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        h1, h2, h3, h4 {
+            color: #FFD700; /* Gold for headings */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #FF8C00; /* Orange underline */
+            padding-bottom: 8px;
+        }
+
+        h2 i {
+            margin-right: 12px;
+            color: #FF8C00; /* Orange icon */
+        }
+
+        a {
+            color: #FFD700; /* Gold links */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 0; /* No extra padding, matches template */
+            margin-bottom: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .hero-text { flex: 3; }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 220px;
+            border-radius: 0;
+            box-shadow: none;
+            animation: none;
+        }
+
+        .hero-name {
+            font-size: 2.5rem;
+            margin: 0 0 15px 0;
+            color: #FFD700;
+        }
+        .intro-banner {
+            margin: 12px 0 20px 0;
+            padding: 0;
+            text-align: left;
+        }
+        .intro-banner h2 {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            font-size: 2.45rem;
+            line-height: 1.2;
+            color: #FFE8A3;
+            display: block;
+            font-family: "Cinzel", serif;
+            letter-spacing: 0.6px;
+            text-shadow: 0 0 16px rgba(255, 215, 0, 0.4);
+        }
+        @media (max-width: 768px) {
+            .intro-banner h2 {
+                font-size: 1.65rem;
+            }
+        }
+        
+        .hero-contact {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .hero-contact a {
+            color: #f0f0f0; /* Off-white contact links */
+            font-size: 1.1rem;
+        }
+        .hero-contact a:hover {
+            color: #FFD700;
+        }
+        .hero-contact i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+            color: #FF8C00; /* Orange icons */
+        }
+        .contact-list {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        /* Using the text from your template */
+        .hero-summary {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 10px 0 0 0;
+            color: #FFD700; /* Gold/yellow text */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* All sections are visible by default */
+        .content-section {
+            margin-bottom: 26px;
+        }
+
+        article {
+            margin-bottom: 12px;
+        }
+        article h3 {
+            font-size: 1.3rem;
+            color: #FFD700;
+        }
+        article h4 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ccc; /* Lighter text for sub-heading */
+            margin: 0 0 5px 0;
+        }
+        .meta {
+            font-style: italic;
+            color: #FF8C00; /* Orange meta text */
+            margin-bottom: 10px;
+        }
+        .certificate-links {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .certificate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #FF8C00;
+            color: #000;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid #FFD700;
+            text-decoration: none;
+        }
+        .certificate-btn:hover {
+            color: #000;
+            background-color: #FFD700;
+            text-decoration: none;
+        }
+
+        /* --- SKILLS --- */
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        .skill-category strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: #FFD700; /* Gold category name */
+        }
+        .skill-tag {
+            display: inline-block;
+            background-color: #FF8C00; /* Orange */
+            color: #000; /* Black text */
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 15px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9rem;
+            border: 1px solid #FFD700;
+        }
+
+        /* --- DUAL COLUMN --- */
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px 0 0 0;
+            border-top: 1px solid #FF8C00; /* Orange border */
+            color: #FF8C00;
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+
+                /* --- MEDIA SLIDER --- */
+        .media-slider {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #FF8C00;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 12px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slide img,
+        .slide iframe {
+            width: 100%;
+            height: 560px;
+            border: 0;
+            border-radius: 12px;
+            object-fit: contain;
+            background: #111;
+        }
+        .fallback-link {
+            display: none;
+            margin-top: 10px;
+            color: #FFD700;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 140, 0, 0.9);
+            color: #000;
+            border: 1px solid #FFD700;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+        .slider-btn:hover {
+            background: #FFD700;
+        }
+        .slider-btn.prev {
+            left: 14px;
+        }
+        .slider-btn.next {
+            right: 14px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .container {
+                width: auto;
+                margin: 20px auto;
+            }
+            .side-menu {
+                position: static;
+                height: auto;
+                width: auto;
+                border: 1px solid #FFB347;
+                border-radius: 16px;
+                padding: 14px;
+                margin: 0 auto 12px auto;
+                overflow: visible;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+            }
+            .hero-name {
+                font-size: 2rem;
+            }
+            .hero-contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .logo-box {
+                position: absolute; /* Changes from fixed to absolute */
+            }
+            .slide {
+                min-height: 430px;
+            }
+            .slide img,
+            .slide iframe {
+                height: 410px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-box">
+        <i class="fa-solid fa-bomb"></i>
+    </div>
+
+    <nav class="side-menu" aria-label="Section navigation">
+        <a href="#academics"><i class="fa-solid fa-book-open-reader"></i> Academics</a>
+        <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="#projects"><i class="fa-solid fa-flask-vial"></i> Projects</a>
+        <a href="#skills"><i class="fa-solid fa-laptop-code"></i> Skills</a>
+        <a href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+        <a href="#media"><i class="fa-solid fa-images"></i> Media</a>
+        <a href="#contact"><i class="fa-solid fa-address-card"></i> Contact Me</a>
+    </nav>
+
+    <main class="container">
+        
+        <header class="hero">
+            <div class="hero-text">
+                <div class="intro-banner">
+                    <h2>Hi, I'm Pawan. I'm Interested In Machine Learning And Python.</h2>
+                </div>
+
+                <h1 class="hero-name">BUDDA PAWAN KUMAR</h1>
+
+                <p class="hero-summary">
+                    "AI/ML enthusiast and Computer Science student at GITAM University with hands-on internship experience at Reliance Jio. Proven ability in developing and deploying deep learning models, managing large-scale events, and leading teams."
+                </p>
+
+                <div class="hero-contact">
+                    <a href="tel:+917981456407"><i class="fa-solid fa-phone"></i> +91 7981456407</a>
+                    <a href="mailto:bpawan1908@gmail.com"><i class="fa-solid fa-envelope"></i> bpawan1908@gmail.com</a>
+                    
+                    <a href="www.linkedin.com/in/
+pawan-kumar-buddha
+" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Pawankumar1908" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="Pawan outline .png" alt="Budda Pawan Kumar Outline">
+            </div>
+        </header>
+
+        <section id="academics" class="content-section">
+            <h2><i class="fa-solid fa-book-open-reader"></i> Academics</h2>
+            <article>
+                <h3>Engineering (B.Tech in Computer Science)</h3>
+                <h4>
+                    <a href="https://www.gitam.edu" target="_blank">
+                        GITAM University, Visakhapatnam
+                    </a>
+                </h4>
+                <p class="meta">2022 - 2026 | CGPA: 7.67</p>
+            </article>
+            <article>
+                <h3>Intermediate</h3>
+                <h4>
+                    <a href="https://www.sriviswa.com" target="_blank">
+                        Sri Viswa Junior College,Visakhapatnam
+                    </a>
+                </h4>
+                <p class="meta">2022 - 2024 | Score: 80.01%</p>
+            </article>
+            <article>
+                <h3>Secondary Education</h3>
+                <h4>
+                    <a href="https://sivasivanihighschool.com" target="_blank">
+                        Siva Sivani School, Marripalem, Visakhapatnam
+                    </a>
+                </h4>
+                <p class="meta">2020 - 2022 | Score: 93.67%</p>
+            </article>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+            
+            <article class="job">
+                <h3>AI/ML INTERN</h3>
+                <h4>Reliance Jio Platforms Limited (JPL)</h4>
+                <p class="meta">May 2025 - July 2025</p>
+                <ul>
+                    <li>Completed a 2-month onsite internship at Reliance Jio, Hyderabad, focused on advanced audio processing and speaker isolation.</li>
+                    <li>Applied and compared pretrained models including DeepFilterNet, Demucs, Conv-TasNet, and Resemble Enhance for noisy speech enhancement.</li>
+                    <li>Built and evaluated pipelines to isolate a target speaker from multi-speaker conversations and background noise.</li>
+                    <li>Used custom and diverse audio datasets with practical testing and evaluation metrics to improve model quality.</li>
+                    <li>Gained hands-on experience in deep learning, signal processing, and real-world deployment challenges for speech AI.</li>
+                </ul>
+                <div class="certificate-links">
+                    <a class="certificate-btn" href="Intern offer  Letter.pdf" target="_blank">
+                        <i class="fa-solid fa-file-lines"></i> Offer Letter
+                    </a>
+                    <a class="certificate-btn" href="Buddha Pawan Kumar - Internship completion letter.pdf" target="_blank">
+                        <i class="fa-solid fa-file-circle-check"></i> Completion Letter
+                    </a>
+                </div>
+            </article>
+
+            <article class="job">
+                <h3>Team Leader - Marketing & Brand Management</h3>
+                <h4>AIESEC in Visakhapatnam</h4>
+                <p class="meta">Jan 2024 - Jan 2025</p>
+                <ul>
+                    <li>Received the "Best Member" award (2024.1) for outstanding performance.</li>
+                    <li>Served as Core committee Vice President for Youth Speak Forum 2024, contributing to 1.2L+ revenue generation.</li>
+                    <li>Served as Core Committee Vice President for GGR event 2024.</li>
+                    <li>Management Body Member and Team Leader for Marketing Department.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2><i class="fa-solid fa-flask-vial"></i> Projects</h2>
+
+            <article class="project">
+                <h3>Fire Detection System using Deep Learning (ResNet50)</h3>
+                <ul>
+                    <li>Developed a computer vision model using ResNet50 to detect fire in real time from camera feed.</li>
+                    <li>Improved detection accuracy through dataset augmentation, transfer learning, and hyperparameter optimization.</li>
+                </ul>
+            </article>
+
+            <article class="project">
+                <h3>Autonomous Fire-Fighting Rover using Raspberry Pi</h3>
+                <ul>
+                    <li>Built a fully autonomous rover integrated with computer vision and thermal sensors for fire identification.</li>
+                    <li>Implemented path navigation and fire-target tracking using OpenCV and Raspberry Pi 5.</li>
+                </ul>
+            </article>
+            
+            <article class="project">
+                <h3>Voice Denoising Project using Custom Audio Dataset</h3>
+                <ul>
+                    <li>Implemented a speech denoising pipeline using Librosa and machine learning techniques.</li>
+                    <li>Designed both live audio recording and file upload prediction features to enhance speech clarity.</li>
+                </ul>
+            </article>
+            
+            <article class="project">
+                <h3>Smart Parking System using ESP8266 and IoT</h3>
+                <ul>
+                    <li>Designed an IoT-based parking management system using ultrasonic sensors to detect slot occupancy.</li>
+                    <li>Displayed real-time parking status through a dedicated web dashboard using ThingSpeak or Blynk.</li>
+                </ul>
+            </article>
+            
+            <article class="project">
+                <h3>Online Parking System Web Application</h3>
+                <ul>
+                    <li>Created a responsive web interface using HTML, CSS, and JavaScript to display dynamic parking information.</li>
+                    <li>Integrated IoT data updates from ESP8266 to provide accurate slot availability for users.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2><i class="fa-solid fa-laptop-code"></i> Technical Skills</h2>
+            <div class="skill-category">
+                <strong>Languages:</strong>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+            </div>
+            <div class="skill-category">
+                <strong>Frameworks & Libraries:</strong>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">OpenCV</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">Numpy</span>
+            </div>
+            <div class="skill-category">
+                <strong>Domains:</strong>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">IoT</span>
+            </div>
+        </section>
+
+        <section id="achievements" class="content-section">
+            <h2><i class="fa-solid fa-trophy"></i> Achievements</h2>
+            <ul>
+                <li>Awarded Best Member 2024.1 - AIESEC</li>
+                <li>Led large-scale events (Youth Speak Forum)</li>
+                <li>Built 3+ real-time IoT/AI projects</li>
+            </ul>
+        </section>
+
+        <section id="media" class="content-section">
+            <h2><i class="fa-solid fa-images"></i> Certificates & Media</h2>
+            <div class="media-slider" aria-label="Media slider">
+                <div class="slides" id="slides">
+                    <div class="slide">
+                        <img src="Best member award presenting.jpg" alt="Best member award presenting" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <a class="fallback-link" href="Best member award presenting.jpg" target="_blank">Open image</a>
+                    </div>
+                    <div class="slide">
+                        <img src="Best_Member_Certificate.jpg" alt="Best Member Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <a class="fallback-link" href="Best_Member_Certificate.jpg" target="_blank">Open image</a>
+                    </div>
+                    <div class="slide">
+                        <img src="letter of appointment.jpg" alt="Letter of appointment" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <a class="fallback-link" href="letter of appointment.jpg" target="_blank">Open image</a>
+                    </div>
+                    <div class="slide">
+                        <iframe src="Budda Pawan kumar_Experience Lettter -AIESEC in Visakhapatnam _ AIESEC in India.pdf" title="AIESEC Experience Letter"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="Buddha Pawan Kumar - Internship completion letter.pdf" title="Internship completion letter"></iframe>
+                    </div>
+                    <div class="slide">
+                        <iframe src="Intern offer  Letter.pdf" title="Intern offer letter"></iframe>
+                    </div>
+                </div>
+                <button class="slider-btn prev" id="prevSlide" aria-label="Previous slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next" id="nextSlide" aria-label="Next slide">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2><i class="fa-solid fa-address-card"></i> Contact Me</h2>
+            <p>
+                Do reach out to me for a collaboration project. Thanks for visiting my profile.
+            </p>
+            <div class="hero-contact contact-list">
+                <a href="tel:+917981456407"><i class="fa-solid fa-phone"></i> +91 7981456407</a>
+                <a href="mailto:bpawan1908@gmail.com"><i class="fa-solid fa-envelope"></i> bpawan1908@gmail.com</a>
+                <a href="https://www.linkedin.com/in/pawan-kumar-buddha" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Pawankumar1908" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Budda Pawan Kumar. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+        <script>
+        const slides = document.getElementById('slides');
+        const originalSlides = Array.from(slides.children);
+        const slideCount = originalSlides.length;
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        const firstClone = originalSlides[0].cloneNode(true);
+        const lastClone = originalSlides[slideCount - 1].cloneNode(true);
+        slides.appendChild(firstClone);
+        slides.insertBefore(lastClone, slides.firstChild);
+        let currentSlide = 1;
+        let autoSlideTimer;
+        let resumeTimer;
+        const AUTO_SLIDE_MS = 4000;
+        const RESUME_AFTER_MANUAL_MS = 10000;
+        const TRANSITION = 'transform 0.5s ease';
+        let isTransitioning = false;
+
+        slides.style.transition = TRANSITION;
+        function showSlide(index) {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, AUTO_SLIDE_MS);
+        }
+        function restartAutoSlide() {
+            clearInterval(autoSlideTimer);
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => {
+                startAutoSlide();
+            }, RESUME_AFTER_MANUAL_MS);
+        }
+        prevSlideBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            restartAutoSlide();
+        });
+        nextSlideBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+            restartAutoSlide();
+        });
+
+        slides.addEventListener('transitionend', () => {
+            if (currentSlide === 0) {
+                slides.style.transition = 'none';
+                currentSlide = slideCount;
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                void slides.offsetWidth;
+                slides.style.transition = TRANSITION;
+            } else if (currentSlide === slideCount + 1) {
+                slides.style.transition = 'none';
+                currentSlide = 1;
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                void slides.offsetWidth;
+                slides.style.transition = TRANSITION;
+            }
+            isTransitioning = false;
+        });
+
+        showSlide(1);
+        startAutoSlide();
+    </script>
+
+</body>
+</html>
